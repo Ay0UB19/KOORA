@@ -3,47 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goal Zone - مدونة كرة القدم</title>
+    <title>Goal Zone</title>
     <style>
+        /* التصميم العام */
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
+
+        /* الشريط العلوي الأسود */
         .navbar {
-            background-color: #007BFF;
-            padding: 10px;
-            color: white;
+            background-color: #000000; /* أسود */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* ثابت في الأعلى */
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s; /* تأثير التمرير */
         }
-        .navbar a {
-            color: white;
-            margin: 0 15px;
+
+        /* تأثير تغيير لون الشريط عند التمرير */
+        .navbar.scrolled {
+            background-color: #333333; /* رمادي غامق */
+        }
+
+        /* اسم الموقع */
+        .navbar .logo {
+            color: #ffffff; /* أبيض */
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 50px; /* مسافة بين الاسم والقوائم */
+        }
+
+        /* القوائم */
+        .navbar .menu {
+            display: flex;
+            gap: 20px; /* مسافة بين القوائم */
+        }
+
+        .navbar .menu a {
+            color: #ffffff; /* أبيض */
             text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s; /* تأثير التمرير */
         }
+
+        .navbar .menu a:hover {
+            color: #007BFF; /* أزرق عند التمرير */
+        }
+
+        /* الشريط الأزرق الفاصل */
+        .navbar-bottom {
+            background-color: #007BFF; /* أزرق */
+            height: 5px; /* سماكة الشريط */
+            position: fixed;
+            top: 70px; /* تحت الشريط العلوي */
+            width: 100%;
+            z-index: 999;
+        }
+
+        /* زر "انتقل إلى الأعلى" */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF; /* أزرق */
+            color: #ffffff; /* أبيض */
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: none; /* مخفي في البداية */
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top.show {
+            display: block; /* يظهر عند التمرير */
+        }
+
+        /* باقي المحتوى */
         .content {
-            margin-top: 20px;
+            padding: 100px 20px 20px; /* مسافة من الأعلى بسبب الشريط الثابت */
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="#">الرئيسية</a>
-        <a href="news.html">الأخبار</a>
-        <a href="#">الفرق</a>
-        <a href="#">تواصل معنا</a>
+    <!-- الشريط العلوي -->
+    <div class="navbar" id="navbar">
+        <!-- اسم الموقع -->
+        <div class="logo">GOAL ZONE</div>
+
+        <!-- القوائم -->
+        <div class="menu">
+            <a href="#">الرئيسية</a>
+            <a href="#">آخر الأخبار</a>
+            <a href="#">أبرز الدوريات</a>
+            <a href="#">أبرز الفرق</a>
+            <a href="#">نتائج مباريات</a>
+        </div>
     </div>
 
+    <!-- الشريط الأزرق الفاصل -->
+    <div class="navbar-bottom"></div>
+
+    <!-- زر "انتقل إلى الأعلى" -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <!-- باقي المحتوى -->
     <div class="content">
         <h1>مرحبًا بكم في Goal Zone!</h1>
         <p>مدونة متخصصة في كرة القدم وأخبارها.</p>
-        <img src="https://via.placeholder.com/600x300" alt="ملعب كرة قدم">
+        <!-- محتوى إضافي للتأثيرات -->
+        <div style="height: 1500px;">
+            <p>قم بالتمرير لأسفل لرؤية التأثيرات.</p>
+        </div>
     </div>
+
+    <script>
+        // تأثير تغيير لون الشريط عند التمرير
+        window.onscroll = function() {
+            const navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+            // إظهار زر "انتقل إلى الأعلى"
+            const backToTop = document.getElementById("backToTop");
+            if (window.scrollY > 300) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        };
+
+        // الانتقال إلى الأعلى عند النقر على الزر
+        document.getElementById("backToTop").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 </body>
 </html>
