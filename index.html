@@ -18,7 +18,7 @@
             background-color: #000000; /* أسود */
             padding: 20px;
             display: flex;
-            justify-content: center; /* توسيط القوائم */
+            justify-content: space-between; /* توزيع العناصر بين الطرفين */
             align-items: center;
             position: fixed; /* ثابت في الأعلى */
             width: 100%;
@@ -38,7 +38,8 @@
             font-size: 24px;
             font-weight: bold;
             position: absolute; /* وضع الاسم في مكان مخصص */
-            right: 50px; /* مسافة من الحافة اليمنى */
+            left: 50%; /* نقل الاسم إلى الوسط */
+            transform: translateX(-50%); /* توسيط الاسم بدقة */
         }
 
         /* القوائم */
@@ -46,7 +47,16 @@
             display: flex;
             gap: 30px; /* مسافة بين القوائم */
             font-size: 16px; /* تصغير حجم الخط */
-            margin-right: 200px; /* مسافة بين القوائم واسم الموقع */
+        }
+
+        .navbar .menu.left {
+            margin-right: auto; /* توسيط القوائم على اليسار */
+            margin-left: 20px; /* مسافة من الحافة اليسرى */
+        }
+
+        .navbar .menu.right {
+            margin-left: auto; /* توسيط القوائم على اليمين */
+            margin-right: 20px; /* مسافة من الحافة اليمنى */
         }
 
         .navbar .menu a {
@@ -96,17 +106,21 @@
 <body>
     <!-- الشريط العلوي -->
     <div class="navbar" id="navbar">
-        <!-- القوائم -->
-        <div class="menu">
+        <!-- القوائم على اليسار -->
+        <div class="menu left">
             <a href="#">نتائج مباريات</a>
             <a href="#">أبرز الفرق</a>
             <a href="#">أبرز الدوريات</a>
-            <a href="#">آخر الأخبار</a>
-            <a href="#">الرئيسية</a>
         </div>
 
         <!-- اسم الموقع -->
         <div class="logo">GOAL ZONE</div>
+
+        <!-- القوائم على اليمين -->
+        <div class="menu right">
+            <a href="#">آخر الأخبار</a>
+            <a href="#">الرئيسية</a>
+        </div>
     </div>
 
     <!-- الشريط الأزرق الفاصل -->
