@@ -9,14 +9,14 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #000000; /* أسود */
-            color: #ffffff; /* أبيض للنصوص */
+            background-color: #ffffff; /* أبيض */
+            color: #000000; /* أسود للنصوص */
         }
 
-        /* الشريط العلوي الأسود */
+        /* الشريط العلوي */
         .navbar {
             background-color: #000000; /* أسود */
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between; /* توزيع العناصر بين الطرفين */
             align-items: center;
@@ -24,12 +24,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: background-color 0.3s; /* تأثير التمرير */
-        }
-
-        /* تأثير تغيير لون الشريط عند التمرير */
-        .navbar.scrolled {
-            background-color: #333333; /* رمادي غامق */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
         }
 
         /* اسم الموقع */
@@ -37,26 +32,13 @@
             color: #ffffff; /* أبيض */
             font-size: 24px;
             font-weight: bold;
-            position: absolute; /* وضع الاسم في مكان مخصص */
-            left: 50%; /* نقل الاسم إلى الوسط */
-            transform: translateX(-50%); /* توسيط الاسم بدقة */
         }
 
         /* القوائم */
         .navbar .menu {
             display: flex;
-            gap: 30px; /* مسافة بين القوائم */
-            font-size: 16px; /* تصغير حجم الخط */
-        }
-
-        .navbar .menu.left {
-            margin-right: auto; /* توسيط القوائم على اليسار */
-            margin-left: 20px; /* مسافة من الحافة اليسرى */
-        }
-
-        .navbar .menu.right {
-            margin-left: auto; /* توسيط القوائم على اليمين */
-            margin-right: 20px; /* مسافة من الحافة اليمنى */
+            gap: 20px; /* مسافة بين القوائم */
+            font-size: 16px; /* حجم الخط */
         }
 
         .navbar .menu a {
@@ -69,14 +51,41 @@
             color: #007BFF; /* أزرق عند التمرير */
         }
 
-        /* الشريط الأزرق الفاصل */
-        .navbar-bottom {
-            background-color: #007BFF; /* أزرق */
-            height: 5px; /* سماكة الشريط */
-            position: fixed;
-            top: 70px; /* تحت الشريط العلوي */
-            width: 100%;
-            z-index: 999;
+        /* المحتوى الرئيسي */
+        .content {
+            padding: 100px 20px 20px; /* مسافة من الأعلى بسبب الشريط الثابت */
+            text-align: center;
+        }
+
+        /* عنوان المحتوى */
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* أخبار كرة القدم */
+        .news-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* تخطيط شبكي */
+            gap: 20px; /* مسافة بين العناصر */
+            padding: 20px;
+        }
+
+        .news-card {
+            background-color: #f4f4f4; /* رمادي فاتح */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+        }
+
+        .news-card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .news-card p {
+            font-size: 16px;
+            color: #555555; /* رمادي غامق */
         }
 
         /* زر "انتقل إلى الأعلى" */
@@ -96,55 +105,51 @@
         .back-to-top.show {
             display: block; /* يظهر عند التمرير */
         }
-
-        /* باقي المحتوى */
-        .content {
-            padding: 100px 20px 20px; /* مسافة من الأعلى بسبب الشريط الثابت */
-        }
     </style>
 </head>
 <body>
     <!-- الشريط العلوي -->
-    <div class="navbar" id="navbar">
-        <!-- القوائم على اليسار -->
-        <div class="menu left">
-            <a href="#">نتائج مباريات</a>
-            <a href="#">أبرز الفرق</a>
-            <a href="#">أبرز الدوريات</a>
-        </div>
-
+    <div class="navbar">
         <!-- اسم الموقع -->
         <div class="logo">GOAL ZONE</div>
 
-        <!-- القوائم على اليمين -->
-        <div class="menu right">
-            <a href="#">آخر الأخبار</a>
+        <!-- القوائم -->
+        <div class="menu">
             <a href="#">الرئيسية</a>
+            <a href="#">أبرز الأخبار</a>
+            <a href="#">أبرز الدوريات</a>
+            <a href="#">أبرز الفرق</a>
+            <a href="#">نتائج المباريات</a>
         </div>
     </div>
 
-    <!-- الشريط الأزرق الفاصل -->
-    <div class="navbar-bottom"></div>
+    <!-- المحتوى الرئيسي -->
+    <div class="content">
+        <h1>أخبار كرة القدم هنا</h1>
+
+        <!-- قسم الأخبار -->
+        <div class="news-section">
+            <div class="news-card">
+                <h2>فوز كبير لبرشلونة</h2>
+                <p>فاز برشلونة على ريال مدريد بنتيجة 3-1 في كلاسيكو الأرض.</p>
+            </div>
+            <div class="news-card">
+                <h2>ميسي يفوز بالكرة الذهبية</h2>
+                <p>ليونيل ميسي يفوز بالكرة الذهبية للمرة السابعة في مسيرته.</p>
+            </div>
+            <div class="news-card">
+                <h2>انتقالات الصيف</h2>
+                <p>تعرف على أهم انتقالات الصيف في عالم كرة القدم.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- زر "انتقل إلى الأعلى" -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>
 
-    <!-- باقي المحتوى -->
-    <div class="content">
-        <!-- تم حذف العبارات المطلوبة -->
-    </div>
-
     <script>
-        // تأثير تغيير لون الشريط عند التمرير
+        // إظهار زر "انتقل إلى الأعلى" عند التمرير
         window.onscroll = function() {
-            const navbar = document.getElementById("navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-
-            // إظهار زر "انتقل إلى الأعلى"
             const backToTop = document.getElementById("backToTop");
             if (window.scrollY > 300) {
                 backToTop.classList.add("show");
