@@ -18,7 +18,7 @@
             background-color: #000000; /* أسود */
             padding: 20px;
             display: flex;
-            justify-content: center; /* توسيط القوائم */
+            justify-content: space-between; /* توزيع العناصر بين الطرفين */
             align-items: center;
             position: fixed; /* ثابت في الأعلى */
             width: 100%;
@@ -37,14 +37,14 @@
             color: #ffffff; /* أبيض */
             font-size: 24px;
             font-weight: bold;
-            margin-left: 50px; /* مسافة بين الاسم والقوائم */
+            margin-left: auto; /* نقل الاسم إلى أقصى اليمين */
         }
 
         /* القوائم */
         .navbar .menu {
             display: flex;
-            gap: 30px; /* زيادة المسافة بين القوائم */
-            font-size: 20px; /* تكبير حجم الخط */
+            gap: 20px; /* تقليل المسافة بين القوائم */
+            font-size: 16px; /* تصغير حجم الخط */
         }
 
         .navbar .menu a {
