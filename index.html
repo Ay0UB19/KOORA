@@ -18,7 +18,7 @@
             background-color: #000000; /* أسود */
             padding: 20px;
             display: flex;
-            justify-content: center; /* توسيط القوائم */
+            justify-content: space-between; /* توزيع العناصر بين الطرفين */
             align-items: center;
             position: fixed; /* ثابت في الأعلى */
             width: 100%;
@@ -37,16 +37,17 @@
             color: #ffffff; /* أبيض */
             font-size: 24px;
             font-weight: bold;
-            position: absolute; /* وضع الاسم في مكان مخصص */
-            right: 20px; /* مسافة من الحافة اليمنى */
+            margin-left: auto; /* نقل الاسم إلى أقصى اليمين */
+            margin-right: 20px; /* مسافة من الحافة اليمنى */
         }
 
         /* القوائم */
         .navbar .menu {
             display: flex;
-            gap: 30px; /* مسافة بين القوائم */
+            gap: 20px; /* مسافة بين القوائم */
             font-size: 16px; /* تصغير حجم الخط */
-            margin-right: 150px; /* مسافة بين القوائم واسم الموقع */
+            margin-right: auto; /* توسيط القوائم */
+            margin-left: 20px; /* مسافة من الحافة اليسرى */
         }
 
         .navbar .menu a {
