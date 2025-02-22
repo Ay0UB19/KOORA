@@ -9,8 +9,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* أبيض */
-            color: #000000; /* أسود للنصوص */
+            background-color: #000000; /* أسود */
+            color: #ffffff; /* أبيض للنصوص */
         }
 
         /* الشريط العلوي */
@@ -27,11 +27,22 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
         }
 
+        /* شريط أزرق غامق فاصل */
+        .navbar-bottom {
+            background-color: #0056b3; /* أزرق غامق */
+            height: 3px; /* سماكة الشريط */
+            position: fixed;
+            top: 70px; /* تحت الشريط العلوي */
+            width: 100%;
+            z-index: 999;
+        }
+
         /* اسم الموقع */
         .navbar .logo {
             color: #ffffff; /* أبيض */
             font-size: 24px;
             font-weight: bold;
+            margin-left: 20px; /* مسافة من الحافة اليسرى */
         }
 
         /* القوائم */
@@ -39,6 +50,7 @@
             display: flex;
             gap: 20px; /* مسافة بين القوائم */
             font-size: 16px; /* حجم الخط */
+            margin-right: 20px; /* مسافة من الحافة اليمنى */
         }
 
         .navbar .menu a {
@@ -72,7 +84,7 @@
         }
 
         .news-card {
-            background-color: #f4f4f4; /* رمادي فاتح */
+            background-color: #1a1a1a; /* رمادي غامق */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
@@ -85,7 +97,7 @@
 
         .news-card p {
             font-size: 16px;
-            color: #555555; /* رمادي غامق */
+            color: #cccccc; /* رمادي فاتح */
         }
 
         /* زر "انتقل إلى الأعلى" */
@@ -122,6 +134,9 @@
             <a href="#">نتائج المباريات</a>
         </div>
     </div>
+
+    <!-- شريط أزرق غامق فاصل -->
+    <div class="navbar-bottom"></div>
 
     <!-- المحتوى الرئيسي -->
     <div class="content">
